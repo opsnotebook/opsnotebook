@@ -1,0 +1,60 @@
+{
+  "group_by": [
+    "environment",
+    "region",
+    "name"
+  ],
+  "variables": [
+    {
+      "when": {
+        "environment": "dev",
+        "region": "local"
+      },
+      "then": {
+        "some_var": "default_value"
+      }
+    }
+  ],
+  "targets": [
+    {
+      "id": "example-target-1",
+      "name": "example-es",
+      "tags": {
+        "environment": "dev",
+        "region": "local",
+        "name": "example-es",
+        "variant": "primary"
+      },
+      "visual": {
+        "color": "blue"
+      },
+      "driver_cmd": "python3 ../drivers/test-driver.py",
+      "variables": {
+        "db_host": "localhost"
+      },
+      "labels": {
+        "type": "elasticsearch"
+      }
+    },
+    {
+      "id": "example-target-2",
+      "name": "example-es",
+      "tags": {
+        "environment": "dev",
+        "region": "local",
+        "name": "example-es",
+        "variant": "replica"
+      },
+      "visual": {
+        "color": "green"
+      },
+      "driver_cmd": "python3 ../drivers/test-driver.py",
+      "variables": {
+        "db_host": "localhost"
+      },
+      "labels": {
+        "type": "elasticsearch"
+      }
+    }
+  ]
+}
