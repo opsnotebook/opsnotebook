@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* JSON template syntax highlighting - Light mode */
+.json-template {
+  color: #374151;
+}
+.json-template .hl-key {
+  color: #0369a1;
+}
+.json-template .hl-str {
+  color: #059669;
+}
+.json-template .hl-num {
+  color: #d97706;
+}
+.json-template .hl-lit {
+  color: #7c3aed;
+}
+.json-template .hl-var {
+  color: #1d4ed8;
+  background: #dbeafe;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* JSON template syntax highlighting - Dark mode */
+.dark .json-template {
+  color: #e5e7eb;
+}
+.dark .json-template .hl-key {
+  color: #7dd3fc;
+}
+.dark .json-template .hl-str {
+  color: #6ee7b7;
+}
+.dark .json-template .hl-num {
+  color: #fcd34d;
+}
+.dark .json-template .hl-lit {
+  color: #c4b5fd;
+}
+.dark .json-template .hl-var {
+  color: #93c5fd;
+  background: #1e3a5f;
+}
