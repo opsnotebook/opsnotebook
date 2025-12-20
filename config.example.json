@@ -1,0 +1,49 @@
+{
+  "variables": [
+    {
+      "when": {
+        "environment": "dev",
+        "region": "local"
+      },
+      "then": {
+        "some_var": "default_value"
+      }
+    }
+  ],
+  "targets": [
+    {
+      "id": "example-target-1",
+      "name": "example-db",
+      "tags": {
+        "environment": "dev",
+        "region": "local",
+        "name": "example-db",
+        "variant": "primary"
+      },
+      "visual": {
+        "color": "blue"
+      },
+      "driver_cmd": "python3 ../drivers/test-driver.py",
+      "variables": {
+        "db_host": "localhost"
+      }
+    },
+    {
+      "id": "example-target-2",
+      "name": "example-db",
+      "tags": {
+        "environment": "dev",
+        "region": "local",
+        "name": "example-db",
+        "variant": "replica"
+      },
+      "visual": {
+        "color": "green"
+      },
+      "driver_cmd": "python3 ../drivers/test-driver.py",
+      "variables": {
+        "db_host": "localhost"
+      }
+    }
+  ]
+}
