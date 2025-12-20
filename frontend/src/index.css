@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens for light/dark theming.
+ *
+ * These Tailwind theme tokens are backed by CSS custom properties so a single
+ * declaration in `.dark` can flip every utility built from them:
+ * write `bg-surface`, never `bg-white dark:bg-gray-800`. Add new
+ * semantic tokens here rather than sprinkling `dark:` pairs in
+ * components; decorative/categorical colors (target badge colors,
+ * status dots, solid accent buttons) are intentionally NOT tokenized
+ * here since they don't vary by theme.
+ */
+@theme {
+  --color-bg: var(--color-gray-100);
+  --color-surface: var(--color-white);
+  --color-surface-sunken: var(--color-white);
+  --color-surface-muted: var(--color-gray-50);
+  --color-surface-header: var(--color-gray-50);
+  --color-border: var(--color-gray-200);
+  --color-border-subtle: var(--color-gray-100);
+  --color-text: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-muted: var(--color-gray-500);
+
+  --color-success-bg: var(--color-green-100);
+  --color-success: var(--color-green-800);
+  --color-success-border: var(--color-green-200);
+  --color-warning-bg: var(--color-yellow-100);
+  --color-warning: var(--color-yellow-800);
+  --color-warning-border: var(--color-yellow-200);
+  --color-danger-bg: var(--color-red-100);
+  --color-danger: var(--color-red-800);
+  --color-danger-border: var(--color-red-200);
+  --color-info-bg: var(--color-blue-100);
+  --color-info: var(--color-blue-800);
+  --color-info-border: var(--color-blue-200);
+}
+
+.dark {
+  --color-bg: var(--color-gray-900);
+  --color-surface: var(--color-gray-800);
+  --color-surface-sunken: var(--color-gray-900);
+  --color-surface-muted: var(--color-gray-800);
+  --color-surface-header: var(--color-gray-700);
+  --color-border: var(--color-gray-700);
+  --color-border-subtle: var(--color-gray-700);
+  --color-text: var(--color-gray-100);
+  --color-text-secondary: var(--color-gray-300);
+  --color-text-muted: var(--color-gray-400);
+
+  --color-success-bg: var(--color-green-900);
+  --color-success: var(--color-green-200);
+  --color-success-border: var(--color-green-800);
+  --color-warning-bg: var(--color-yellow-900);
+  --color-warning: var(--color-yellow-200);
+  --color-warning-border: var(--color-yellow-800);
+  --color-danger-bg: var(--color-red-900);
+  --color-danger: var(--color-red-200);
+  --color-danger-border: var(--color-red-800);
+  --color-info-bg: var(--color-blue-900);
+  --color-info: var(--color-blue-200);
+  --color-info-border: var(--color-blue-800);
+}
+
+/* JSON template syntax highlighting - Light mode */
+.json-template { color: #374151; }
+.json-template .hl-key { color: #0369a1; }
+.json-template .hl-str { color: #059669; }
+.json-template .hl-num { color: #d97706; }
+.json-template .hl-lit { color: #7c3aed; }
+.json-template .hl-var {
+  color: #1d4ed8;
+  background: #dbeafe;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* JSON template syntax highlighting - Dark mode */
+.dark .json-template { color: #e5e7eb; }
+.dark .json-template .hl-key { color: #7dd3fc; }
+.dark .json-template .hl-str { color: #6ee7b7; }
+.dark .json-template .hl-num { color: #fcd34d; }
+.dark .json-template .hl-lit { color: #c4b5fd; }
+.dark .json-template .hl-var {
+  color: #93c5fd;
+  background: #1e3a5f;
+}
+
+/* Response JSON syntax highlighting (highlight.js json language) - Light mode */
+.hljs-response .hljs-attr { color: #005cc5; }
+.hljs-response .hljs-string { color: #032f62; }
+.hljs-response .hljs-number { color: #005cc5; }
+.hljs-response .hljs-literal { color: #005cc5; }
+.hljs-response .hljs-punctuation { color: inherit; }
+
+/* Response JSON syntax highlighting - Dark mode */
+.dark .hljs-response .hljs-attr { color: #79c0ff; }
+.dark .hljs-response .hljs-string { color: #a5d6ff; }
+.dark .hljs-response .hljs-number { color: #79c0ff; }
+.dark .hljs-response .hljs-literal { color: #79c0ff; }
+
+/* ===== Kibana-style console editor ===== */
+/* Shared metrics so the transparent textarea aligns exactly with the highlight overlay */
+.console-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0;
+  tab-size: 2;
+  -moz-tab-size: 2;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
+/* HTTP method keywords */
+.con-method { font-weight: 700; }
+.con-GET { color: #059669; }
+.con-POST { color: #2563eb; }
+.con-PUT { color: #d97706; }
+.con-DELETE { color: #dc2626; }
+.con-HEAD, .con-PATCH { color: #7c3aed; }
+.dark .con-GET { color: #34d399; }
+.dark .con-POST { color: #60a5fa; }
+.dark .con-PUT { color: #fbbf24; }
+.dark .con-DELETE { color: #f87171; }
+.dark .con-HEAD, .dark .con-PATCH { color: #c4b5fd; }
+
+/* Variable chips inside the console overlay */
+.console-code .con-var {
+  color: #1d4ed8;
+  background: #dbeafe;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.console-code .con-var-missing {
+  color: #c2410c;
+  background: #ffedd5;
+}
+.dark .console-code .con-var {
+  color: #93c5fd;
+  background: #1e3a5f;
+}
+.dark .console-code .con-var-missing {
+  color: #fdba74;
+  background: #7c2d12;
+}

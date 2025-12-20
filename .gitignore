@@ -1,0 +1,17 @@
+# Binaries
+backend/main
+backend/server
+bin/
+
+# Config (Sensitive)
+config.json
+
+# OS specific
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+
+# Logs
+*.log
